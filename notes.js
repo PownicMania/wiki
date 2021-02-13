@@ -9,7 +9,9 @@ const settings = {
         // Path to github repo base
         githubpath: "https://github.com/sbhax/wiki/edit/master/md/",
         // Path to create a new page
-        createpath: "https://github.com/sbhax/wiki/new/master/md/",
+        createpath: "https://github.com/sbhax/wiki/new/master/md?filename=",
+        // Suffix to the creation path
+        createpathsuffix: ".md&value=%3C!--%20Please%20check%20out%20https://sbhax.github.io/wiki/?a=contributing%20for%20examples%20and%20tips%20to%20write%20new%20articles!%20--%3E",
         // Page if page argument not found
         notfound: "index"
     },
@@ -72,7 +74,7 @@ function getDirectories(path, index) {
 }
 
 // Set the github link to the page
-document.getElementById("githubLink").href = settings.ids.createpath + (args.get(settings.ids.argument) == null ? settings.ids.notfound : args.get(settings.ids.argument)) + ".md"
+document.getElementById("githubLink").href = settings.ids.createpath + (args.get(settings.ids.argument) == null ? settings.ids.notfound : args.get(settings.ids.argument)) + settings.ids.createpathsuffix
 
 loadFile(settings.ids.articlepath + (args.get(settings.ids.argument) == null ? settings.ids.notfound : args.get(settings.ids.argument)) + ".md").then(function(){
 
